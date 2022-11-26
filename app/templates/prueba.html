@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css' ) }}">
+<h1>Ricky and morthy</h1>
+
+
+
+
+
+
+
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Species </th>
+          <th>Gender</th>
+          <th>Last know location</th>
+          <th>Imagen</th>
+          <th>First seen in</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in (dato['results']) %}
+        <tr>
+          <td>{{ i.id }}</td>
+          <td>{{ i.name }}</td>
+          <td>{{ i.status }}</td>
+          <td>{{ i.species }}</td>
+          <td>{{ i.gender }}</td>
+          <td>{{ i.location.name }}</td>
+          <td> <img src="{{ i.image }}" alt=""></td>
+
+          <td>{{ datox.name }}</td>
+          
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+
+
+      
+    
+  </div>
+ 
+
+{% endblock content %}

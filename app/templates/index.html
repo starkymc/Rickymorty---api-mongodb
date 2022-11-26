@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css' ) }}">
+
+
+    <div class="container">
+ 
+      <div class="contain-imag"> 
+      <h1 class="text-center">Rick and morty </h1>
+      <img src="{{ url_for('static', filename='img/portada.jpg') }}" class="img-thumbnail" />
+      </div>
+
+      {% for i in personajes %} 
+      <!-- inicio del div -->
+      <div class="card float-right">
+        <div class="row">
+          <div class="col-sm-5">
+            <img class="d-block w-100" src="{{i.image}}" alt="">
+          </div>
+          <div class="col-sm-7">
+            <div class="card-block">
+              <!--           <h4 class="card-title">Small card</h4> -->
+              <h4 class="card-title"> <strong>{{i.name}}</strong></h4>
+              <p class="card-subtitlex">🔴 {{i.status}} - {{i.species}}</p>
+              
+              <marquee behavior="" direction=""><mark>
+                Lo de abajo no esta haciendo uso del api 
+              </mark></marquee>
+
+              <h5 class="card-subtitle mb-2 text-success "><strong>Last known location: </strong></h5>
+              <h5 class="card-subtitlelocation"> Ciudad de Ricky (Por hacer...)</h5>
+              <h5 class="card-subtitle mb-2 text-success" id="spacio"><strong>First seen in: </strong></h5>
+              <h5 class="card-subtitle mb-2 "> En el episodio 25 (Por hacer...)</h5>
+
+              <marquee behavior="" direction=""><mark>
+                Aun falta por hacer 
+              </mark></marquee>
+
+              <a href="#" class="btn btn-primary float-right">Ver perfil</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+<!-- final del div -->
+</div>
+  
+{% endblock content %}

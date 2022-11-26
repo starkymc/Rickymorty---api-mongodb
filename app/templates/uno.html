@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css' ) }}">
+
+
+    <div class="container">
+ 
+      <div class="contain-imag"> 
+      <h1 class="text-center">Rick and morty </h1>
+      <img src="{{ url_for('static', filename='img/portada.jpg') }}" class="img-thumbnail" />
+      </div>
+
+
+      <!-- inicio del div -->
+      <div class="card float-right">
+        <div class="row">
+          <div class="col-sm-5">
+            <img class="d-block w-100" src="{{personajes.image}}" alt="">
+          </div>
+          <div class="col-sm-7">
+            <div class="card-block">
+              <!--           <h4 class="card-title">Small card</h4> -->
+              <h4 class="card-title"> <strong>{{personajes.name}}</strong></h4>
+              <p class="card-subtitlex">🔴 {{personajes.status}} - {{personajes.species}}</p>
+              
+
+              <h5 class="card-subtitle mb-2 text-success "><strong>Last known location: <strong></h5>
+
+                {% for i in (dato['results']) %}
+                <h5 class="card-subtitlelocation"> {{ i.location.name}}</h5>
+                {% endfor %}
+                
+
+
+              <h5 class="card-subtitle mb-2 text-success" id="spacio"><strong>First seen in: <strong></h5>
+              <h5 class="card-subtitle mb-2 ">{{datox.name}}</h5>
+              <a href="#" class="btn btn-primary float-right">Ver perfil</a>
+
+
+            </div>
+          </div>
+          
+          
+   
+        </div>
+      
+      </div>
+    
+      <!-- final del div -->
+
+
+    </div>
+   <br>
+  <br>
+ 
+
+  
+  
+
+{% endblock content %}
