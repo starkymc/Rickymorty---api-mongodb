@@ -2,7 +2,7 @@ Proyecto
 Para nuestro proyecto final, haremos uso de la API "Rick and Morty".
 
 
-<img src="foto.png" alt="silabuz" width="550" height="400" />
+<img src="img.png" alt="silabuz" width="550" height="450" />
 
 
 Requerimientos
