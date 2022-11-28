@@ -1,0 +1,112 @@
+body {
+    background: #111 !important;
+  }
+  
+
+.contain-imag{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.img-thumbnail{
+    width: 100px;
+   margin-left: 45%;
+}
+
+/* Cards */
+.card{
+    position: relative;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #111;
+    background-clip: border-box;
+    box-shadow: 2px 3px 4px 0 #412d79, 0 0 0 1px #1f1f5f;
+    border-radius: .25rem;
+    margin-bottom:30px;}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    box-shadow: 2px 6px 8px 0 #ffffff, 0 0 0 1px #ebebeb;
+}
+
+
+.card-header:first-child {
+    border-radius:calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+
+img.card-img-top {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    width:100%; object-fit: cover;
+     object-position: center;
+    }
+.card-body {
+    text-align: center;
+    justify-content: center;
+    padding:1.25rem;
+    }
+.card-footer {
+        text-align: center;
+         padding:10px 0;
+    }
+.card-footer .read__more{
+        padding: 10px 20px;
+         background: #000;
+         color: #FFF;
+         display: inline-block;
+    }
+.card a:first-child {
+        position: absolute;
+        top: 0;
+         left: 0;
+        height: 100%;
+         width: 100%;
+    }
+    /* Cards Horizontal */
+.card.horizontal{
+        min-height: 280px;
+        
+    }
+.card.horizontal .card-img-top{
+        position: absolute;
+         height: 100%;
+         width: 50%;
+         border-bottom:0;
+         object-fit:cover;
+         object-position:center;
+    }
+.card.horizontal .card-body{
+        position: absolute;
+         height: 100%;
+         width: 50%;
+         right: 0;
+    }
+.card.horizontal .card-body p.card-text{
+        font-size:12px;
+    }
+.card.horizontal .card-footer{
+        position: absolute;
+         width: 50%;
+         bottom: 0;
+         right: 0;
+    }
+    
+#sub{
+        color: darkslategray; 
+       }
+
+
+#swal2-content{
+    justify-content: center;
+    text-align: center;
+    font-size: 19px;
+}
+
+
+
+.swal2-actions{
+    font-size: 16px;
+}
+

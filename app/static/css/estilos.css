@@ -1,6 +1,13 @@
 body {
-    background-color:  #eee;
-  }
+  background: #111 !important;
+}
+
+#sub{
+ color: gainsboro; 
+ font-weight: lighter;
+}
+
+
 .card-subtitlex {
    margin-bottom: 25px;
   }
@@ -20,32 +27,27 @@ body {
    margin-left: 45%;
 }
 
-.card-block {
-      font-size: 1em;
-      position: relative;
-      margin: 0;
-      padding: 1em;
-      border: none;
-      border-top: 1px solid rgba(34, 36, 38, .1);
-      box-shadow: none;
-       
-  }
+
 .card {
-      text-align: ;
+      text-align: center;
+      justify-content: center;
       font-size: 1em;
       overflow: hidden;
       padding: 5;
       border: none;
       border-radius: .28571429rem;
-      box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+      box-shadow: 2px 6px 8px 0 #131212, 0 0 0 1px #222224;
       margin-top:20px;
   }
   
 
   
 
-.lex-direction: 
-   {
-       column;
-  }
   
+
+
+
+
+
+
+

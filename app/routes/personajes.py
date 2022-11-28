@@ -1,7 +1,9 @@
 import hashlib
-from flask import Blueprint, render_template, url_for, flash, redirect
+from flask import Blueprint, render_template, request, url_for, flash, redirect
+from app.models.rickandmorty import apiRickandMorty
 from app.db import db
 from bson import ObjectId
+
 import requests
 
 
@@ -10,12 +12,10 @@ character_router = Blueprint('character_router', __name__)
 #mostrar todos
 @character_router.route("/")
 def index():
-  
-  character = db.personajes.find()
-  #character = db.personajes.find()
-
+  #character = db.personajes.find() personajes=character
+  personajes = db.apiRickandMorty.find()
   #return render_template("index.html", "avatar.html", ,avatar=avt)
-  return render_template("index.html", personajes=character)
+  return render_template("index.html",personajes=personajes)
 
 
 #mostrar solo un personaje
@@ -40,6 +40,36 @@ def uno(id=20,idx=8):
 
   #return render_template("index.html", "avatar.html", ,avatar=avt)
   return render_template("uno.html", personajes=character, datox=datox, dato=dato)
+
+
+#insertar personajes en mongodb
+@character_router.route("/insertar_allpersonajes")
+def insertar_allpersonajes():
+    allpersonajes = apiRickandMorty.getall_characters()       
+    for personajeXpagina in allpersonajes:                  
+        for personaje in personajeXpagina:                     
+            new_personaje = apiRickandMorty(
+                id=str(personaje['id']),
+                name=personaje['name'],
+                status=personaje['status'],
+                species=personaje['species'],
+                location=personaje['location'],
+                image=personaje['image']
+            )
+
+            db.apiRickandMorty.insert_one(new_personaje.to_json())
+    
+    return redirect(url_for('character_router.index'))
+
+
+@character_router.route("/eliminar/<id>")
+def delete_character(id):
+
+  db.apiRickandMorty.delete_one({"id": id})
+
+  flash("El personaje se elimino correctamente", "success")
+
+  return redirect(url_for('character_router.index'))
 
 
 
@@ -72,12 +102,10 @@ def save_data_api():
 
 
 def lectura_api():
-    id = input("Ingresa el nro de pagina: ")
-    id2 = input("Ingresa el segundo nro de pagina: ")
-    api = f'''https://rickandmortyapi.com/api/character?page={id}&?page={id2}''' 
-    resp = requests.get(api)
-    dato = resp.json()
-    for i in (dato['results']):
+    for x in range(1,22,1):
+      result = requests.get(f'https://rickandmortyapi.com/api/character?page={x}')
+      detailPersonaje = result.json()
+      for i in detailPersonaje['results']:
         print("Id:",i['id'])
         print("Name:",i['name'])
         print("Status:",i['status'])
