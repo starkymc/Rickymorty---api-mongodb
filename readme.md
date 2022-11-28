@@ -1,6 +1,10 @@
 Proyecto
 Para nuestro proyecto final, haremos uso de la API "Rick and Morty".
 
+<div align="center">
+<img src="img.png" alt="silabuz" width="550" height="450" text-align="center" />
+</div>
+
 Requerimientos
 Hacer uso de la API y extraer todos los personajes de la página 1 a la 21. Para extraer personajes por página, use la siguiente ruta.
 
